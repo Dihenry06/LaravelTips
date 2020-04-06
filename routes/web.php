@@ -17,25 +17,29 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-/**
- * Verb GET
- */
-Route::get('users', 'Form\TestController@listAllUser')->name('users.listAll');
-Route::get('user/new','Form\TestController@newUser')->name('users.newUser');
-Route::get('user/edit/{user}','Form\TestController@formEditUser')->name('users.formEditUser');
-Route::get('user/{id}','Form\TestController@listUser')->name('users.listUser');
+Route::group(['namespace' => 'Form'], function () {
+    /**
+     * Verb GET
+     */
+    Route::get('users', 'TestController@listAllUser')->name('users.listAll');
+    Route::get('user/new', 'TestController@newUser')->name('users.newUser');
+    Route::get('user/edit/{user}', 'TestController@formEditUser')->name('users.formEditUser');
+    Route::get('user/{id}', 'TestController@listUser')->name('users.listUser');
 
-/**
- * Verb POST
- */
-Route::post('users/store', 'Form\TestController@storeUser')->name('users.store');
+    /**
+     * Verb POST
+     */
+    Route::post('users/store', 'TestController@storeUser')->name('users.store');
 
-/**
- * Verb PUT / Patch
- */
-Route::put('user/edit/{user}','Form\TestController@editUser')->name('users.edit');
+    /**
+     * Verb PUT / Patch
+     */
+    Route::put('user/edit/{user}', 'TestController@editUser')->name('users.edit');
 
-/**
- * Verb DELETE
- */
-Route::delete('');
+    /**
+     * Verb DELETE
+     */
+    Route::delete('user/erase/{user}', 'TestController@eraseUser')->name('user.erase');
+
+});
+

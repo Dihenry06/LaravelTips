@@ -5,20 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Cadastro de usuario</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
 </head>
 <body>
     <form action="{{ route('users.store') }}" method="post">
         @csrf
-        <label for="">Nome do usuario</label>
-        <input type="text" name="name">
+        <div class="form-group">
+            <div class="col-md-6 offset-md-3">
+                <label for="">Nome do usuario</label>
+                <input class="form-control" type="text" name="name">
+            </div>
+        </div>
 
-        <label for="">Email</label>
-        <input type="email" name="email">
+        <div class="form-group">
+            <div class="col-md-6 offset-md-3">
+                <label for="">Email</label>
+                <input class="form-control" type="email" name="email">
+            </div>
+        </div>
 
-        <label for="">Senha</label>
-        <input type="password" name="password">
+        <div class="form-group">
+            <div class="col-md-6 offset-md-3">
+                <label for="">Senha</label>
+                <input class="form-control" type="password" name="password">
+            </div>
+        </div>
 
-        <input type="submit" value="Cadastrar">
+        <button type="submit" class="btn btn-primary col-md-6 offset-md-3">Cadastrar</button>
     </form>
 </body>
 </html>

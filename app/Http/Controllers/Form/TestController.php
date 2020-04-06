@@ -64,4 +64,10 @@ class TestController extends Controller
 
         return redirect()->route('users.listAll');
     }
+
+    public function eraseUser(User $user)
+    {
+        $user->delete();
+        return redirect()->route('users.listAll');
+    }
 }
